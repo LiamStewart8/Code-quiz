@@ -1,22 +1,29 @@
 /* I am going to want one large box with multiple boxes(buttons) inside*/
-*, *::before, *::after {
-    box-sizing: border-box;
-}
 
-body {
-    margin: 0;
-    display: flex;
-    padding: 0;
-    width: 100vw;
-    height: 80vh;
-    justify-content: center;
-    align-items: center;
+
+/* .container {
+    background-color: lightblue;
+    border-radius: 5px;
+    width: 800px;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);    
+} */
+
+.start-btn {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 30px;
+    font-weight: 400;
+    padding: 15px 25px;
+    outline: none;
+    border: none;
+    cursor: pointer;
 }
 
 .container {
-    background-color: gray;
-    padding: 10px;
-    border-radius: 5px;
-    width: 800px;
-    max-width: 80%;
+    display: none;
 }
