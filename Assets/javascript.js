@@ -1,20 +1,12 @@
 // Declare variables. What variables do i need?
-var startButton = document.getElementById('start-btn')
-var container1 = document.getElementById('container1')
-//var questionEl = document.getElementById("questions");
-//var answersEl = document.getElementsById("answer");
+var startButton = document.getElementById('start-btn');
+var container1 = document.getElementById('container1');
+var container2 = document.getElementById('container2');
+var answer1 = document.getElementById('answer1');
+var answer2 = document.getElementById('answer2');
 var timeEl = document.getElementById('timer');
-var secondsLeft = 10;
-// var data = [{
-//     question: 'What color is the ocean?',
-//     answer: ['Orange', 'Green', 'Blue', 'Yellow']
-// }, {
-//     question: 'How many tentacles does an octopus have?',
-//     answer: ['Four', 'Three', 'Six', 'Eight']
-// }, {
-//     question: 'How many weeks are in a year?',
-//     answer: ['365', '52', '24', '36']
-// }
+var secondsLeft = 60;
+
 
 
 
@@ -31,9 +23,50 @@ function startGame() {
     startButton.style.display = "none";
     container1.style.display = "block";
 }
+
+function selectAnswer(event) {
+console.log(event.target.dataset.answer)
+// If answer is true or false, hide this question and show the next.
+    container1.style.display = "none"
+    container2.style.display = "block"
+// If answer is false, decrement time by 20 seconds.
+    if(event.target.dataset.answer === "false") {
+        secondsLeft = secondsLeft - 20;
+        timeEl.textContent = secondsLeft + " seconds left!";
+    }
+
+
+}
+
+function selectAnswer2(event) {
+    container2.style.display = "none"
+    container3.style.display = "block"
+    if(event.target.dataset.answer === "false") {
+        secondsLeft = secondsLeft - 20;
+        timeEl.textContent = secondsLeft + " seconds left!";
+    }
+}
+
+function selectAnswer2(event) {
+    container3.style.display = "none"
+    container4.style.display = "block"
+    if(event.target.dataset.answer === "false") {
+        secondsLeft = secondsLeft - 20;
+        timeEl.textContent = secondsLeft + " seconds left!";
+    }
+}
+//window.location.replace("./highscore.html");
+//score = secondsleft 
 // When answer is clicked, question moves on to the next. 
 // If question is answered wrong, decriment time by 10 seconds. If question is answered correct, move to next question.
 // After all questions are answered, stop timer and prompt input for name and score(time left). This is for high score page.
 
 
+answer2.addEventListener('click', function(event){
+    selectAnswer2(event);
+} )
+
+answer1.addEventListener('click',function(event){
+    selectAnswer(event);
+} )
 startButton.addEventListener('click', startGame);
