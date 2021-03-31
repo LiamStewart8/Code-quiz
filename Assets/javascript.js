@@ -2,8 +2,6 @@
 var startButton = document.getElementById('start-btn');
 var container1 = document.getElementById('container1');
 var container2 = document.getElementById('container2');
-var answer1 = document.getElementById('answer1');
-var answer2 = document.getElementById('answer2');
 var timeEl = document.getElementById('timer');
 var secondsLeft = 60;
 
@@ -47,7 +45,7 @@ function selectAnswer2(event) {
     }
 }
 
-function selectAnswer2(event) {
+function selectAnswer3(event) {
     container3.style.display = "none"
     container4.style.display = "block"
     if(event.target.dataset.answer === "false") {
@@ -55,11 +53,32 @@ function selectAnswer2(event) {
         timeEl.textContent = secondsLeft + " seconds left!";
     }
 }
+
+function selectAnswer4(event) {
+    container4.style.display = "none"
+    window.location.replace("./highscore.html");
+    if(event.target.dataset.answer === "false") {
+        secondsLeft = secondsLeft - 20;
+        timeEl.textContent = secondsLeft + " seconds left!";
+    }
+}
+
+
 //window.location.replace("./highscore.html");
 //score = secondsleft 
 // When answer is clicked, question moves on to the next. 
 // If question is answered wrong, decriment time by 10 seconds. If question is answered correct, move to next question.
 // After all questions are answered, stop timer and prompt input for name and score(time left). This is for high score page.
+
+
+answer4.addEventListener('click', function(event){
+    selectAnswer4(event);
+} )
+
+
+answer3.addEventListener('click', function(event){
+    selectAnswer3(event);
+} )
 
 
 answer2.addEventListener('click', function(event){
